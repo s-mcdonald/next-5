@@ -34,9 +34,4 @@
 @endsection
 
 @section('page-scripts')
-  <script>
-
-
-
-  </script>
 @endsection

@@ -16,14 +16,6 @@ class A06_RacesCompetitors extends Seeder
     public function run()
     {
 
-        // foreach race
-        //      get list of available competitors
-        //      - each race 
-        //              - must have at least 4 or 6 competitors 
-        //              - 2 races can have 3 competitors to signal game to cancel race
-        //      
-        //      == Create row raci_id competior set position to n
-
 
         $types = DB::table('types')->get();
 
@@ -76,8 +68,6 @@ class A06_RacesCompetitors extends Seeder
                             $position++;
                             $current_competitor_count++;
                         }
-
-
 
                     }
 

@@ -22,7 +22,6 @@
             }          
         }
 
-
         /**
          * @todo Even if there is no new data the html is still
          *       being updated. this can be fixed to reduce UI change.

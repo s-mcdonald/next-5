@@ -16,8 +16,8 @@ use App\Race;
 class RaceController extends BaseController
 {
 
-    public function index(Race $race)
-    {
+    public function index(Race $race) {
+
         $message = '';
 
         if($race->competitors->count() < 4) {
@@ -31,8 +31,5 @@ class RaceController extends BaseController
 
         return view('pages.race')->withRace($race)->withMessage($message);   
     }
-
-
-
 
 }

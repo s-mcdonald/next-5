@@ -13,8 +13,8 @@ class Race extends Model
      * 
      * @return
      */
-    public static function getNextFive()
-    {
+    public static function getNextFive() {
+
         $now = Carbon::now();
 
         return Race::where('bet_closing_time', '>', $now )
@@ -30,8 +30,8 @@ class Race extends Model
      * @param  [type]  $id [description]
      * @return boolean     [description]
      */
-    public static function isActive($id)
-    {
+    public static function isActive($id) {
+
         $now = Carbon::now();
 
         $race = Race::where('id', $id )->first();
@@ -44,32 +44,12 @@ class Race extends Model
     }
 
     /**
-     * Not used.
-     * 
-     * @param  [type] $array [description]
-     * @return [type]        [description]
-     */
-    public static function getNextFiveWhereNotIn($array)
-    {
-        $now = Carbon::now();
-
-        return Race::where('bet_closing_time', '>', $now )
-            ->whereNotIn('id', $array)
-            ->orderBy('bet_closing_time')
-            ->limit(5)
-            ->get();
-    }
-
-
-    /**
      * Get the Meeting that belongs to the Race
      * 
      */
-    public function meeting()
-    {
+    public function meeting() {
         return $this->belongsTo('App\Meeting');
     }
-
 
     /**
      * Get the Competitors for the race,
@@ -78,8 +58,7 @@ class Race extends Model
      * - withPivot() allows for access 
      *   to the other pivotTable fields
      */
-    public function competitors()
-    {
+    public function competitors() {
         return $this->belongsToMany('App\Competitor', 'races_has_competitors', 'race_id', 'competitor_id')
                     ->withPivot('position')
                     ->withPivot('position_final');
